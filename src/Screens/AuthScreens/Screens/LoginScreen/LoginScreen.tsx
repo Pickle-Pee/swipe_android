@@ -17,15 +17,19 @@ const LoginScreen:FC<{navigation:StackNavigationProp<any>}> = ({navigation})=>{
     const [phone,setPhone]=useState<string>("");
     const [code,setCode]=useState<string>("");
     const [step,setStep]=useState<string>("phone");
-    
+    const [error,setError]=useState()
     
     const handlerStep=async()=>{
         if(step=="phone"){
-            
-          const status : ReturnedData=await new UserHttp().sendCode("7"+phone.substring(1));
-            if(status.code==0){
-                setStep("code");
+            if(phone.length==11){
+                const status : ReturnedData=await new UserHttp().sendCode("7"+phone.substring(1));
+                if(status.code==0){
+                    setStep("code");
+                }
+            }else{
+
             }
+          
             
         }
         
@@ -100,7 +104,7 @@ const LoginScreen:FC<{navigation:StackNavigationProp<any>}> = ({navigation})=>{
                     <GradientButton
                     
                     active={
-                       step=="phone" && phone.length==11 || step=="code" && code.length==6
+                       true
                     }
                     onPress={handlerStep}
                     

@@ -72,14 +72,14 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-
+    
     namespace "com.swipe"
     defaultConfig {
-        applicationId "com.swipe"
+        applicationId "com.kirillka564.swipe"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.2"
         missingDimensionStrategy 'react-native-camera', 'general'
     }
     signingConfigs {
